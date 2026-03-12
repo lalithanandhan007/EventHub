@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventX - Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">EventX</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="register.html" class="active">Register</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header" style="background:linear-gradient(135deg,#cfd9df,#e2ebf0);">
+    <h1>Register for Event</h1>
+    <p>Fill out the form to book your spot</p>
+  </section>
+
+  <!-- Registration Form -->
+  <div class="form-container">
+    <h2>Event Registration</h2>
+    
+    <form onsubmit="return validateForm(event)">
+      <label>Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+
+      <label>Email</label>
+      <input type="email" id="email" placeholder="Enter your email">
+
+      <label>Phone</label>
+      <input type="text" id="phone" placeholder="Enter phone number">
+
+      <label>Gender</label>
+      <select id="gender">
+        <option value="">-- Select --</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+
+      <label>Ticket Type</label>
+      <select id="ticket">
+        <option value="">-- Select --</option>
+        <option>Normal</option>
+        <option>VIP</option>
+      </select>
+
+      <label>
+        <input type="checkbox" id="terms"> I agree to the Terms & Conditions
+      </label>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2025 EventX | Designed by You</p>
+  </footer>
+
+  <!-- JavaScript Validation -->
+  <script>
+    function validateForm(event) {
+      event.preventDefault(); // stop auto submission
+
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let phone = document.getElementById("phone").value.trim();
+      let gender = document.getElementById("gender").value;
+      let ticket = document.getElementById("ticket").value;
+      let terms = document.getElementById("terms").checked;
+
+      if (name === "" || email === "" || phone === "" || gender === "" || ticket === "") {
+          alert("⚠️ Please fill in all fields.");
+          return false;
+      }
+
+      if (!terms) {
+          alert("⚠️ You must agree to the Terms & Conditions.");
+          return false;
+      }
+
+      alert("🎉 Registration successful!");
+      return true;
+    }
+  </script>
+
+</body>
+</html>
